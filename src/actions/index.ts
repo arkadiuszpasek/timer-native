@@ -27,3 +27,8 @@ export const setTheme = (theme: string) => ({
   type: types.THEME_CHANGE,
   payload: theme,
 });
+
+export const setError = (error: string) => ({
+  type: types.ERROR_CHANGE,
+  payload: error,
+});

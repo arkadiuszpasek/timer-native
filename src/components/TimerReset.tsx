@@ -1,28 +1,42 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 import { useDispatch } from 'react-redux';
+import { BoxShadow } from 'react-native-shadow';
 import { resetTime } from '../actions/index';
-import { neutralGray } from '../styles/vars';
-import { shadowButton } from '../styles/buttons';
+import { NEUTRAL_GRAY } from '../styles/vars';
+import { shadowButton } from '../styles/styles';
 
 const TimeReset = () => {
   const dispatch = useDispatch();
 
   return (
-    <TouchableOpacity onPress={() => dispatch(resetTime())}>
-      <Text style={[styles.container, shadowButton]}>Reset Timer</Text>
-    </TouchableOpacity>
+    <View style={styles.top}>
+      <BoxShadow setting={{ ...shadowButton, height: 60, width: 300 }}>
+        <TouchableOpacity
+          onPress={() => dispatch(resetTime())}
+          style={styles.container}
+        >
+          <Text style={[styles.text]}>Reset Timer</Text>
+        </TouchableOpacity>
+      </BoxShadow>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  top: {
     marginBottom: 30,
-    paddingVertical: 15,
-    paddingHorizontal: 60,
+  },
+  container: {
     borderRadius: 7,
+    width: 300,
+    height: 60,
+    backgroundColor: NEUTRAL_GRAY,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  text: {
     color: 'white',
-    backgroundColor: neutralGray,
     fontSize: 30,
   },
 });

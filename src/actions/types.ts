@@ -5,6 +5,7 @@ export const TIME_TICK = 'TIME_TICK';
 export const SOUND_CHANGE = 'SOUND_CHANGE';
 export const THEME_TOGGLE = 'THEME_TOGGLE';
 export const THEME_CHANGE = 'THEME_CHANGE';
+export const ERROR_CHANGE = 'ERROR_CHANGE';
 
 export interface TimeObject {
   hours: number;
