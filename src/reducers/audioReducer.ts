@@ -22,7 +22,7 @@ const constructAudioObject = (
 };
 
 export default (
-  state = constructAudioObject('ding'),
+  state = constructAudioObject('w3'),
   action: { type: string; payload: string },
 ) => {
   switch (action.type) {

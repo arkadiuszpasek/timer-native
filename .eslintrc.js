@@ -46,5 +46,6 @@ module.exports = {
     'react/style-prop-object': 'off',
     'react/prefer-stateless-function': 'off',
     'object-curly-newline': 'off',
+    'react/prop-types': 'off',
   },
 };

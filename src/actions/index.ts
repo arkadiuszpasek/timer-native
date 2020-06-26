@@ -28,7 +28,15 @@ export const setTheme = (theme: string) => ({
   payload: theme,
 });
 
-export const setError = (error: string) => ({
-  type: types.ERROR_CHANGE,
-  payload: error,
-});
+export const setError = (error: string) => (dispatch) => {
+  if (error) {
+    setTimeout(() => {
+      dispatch(setError(''));
+    }, 2500);
+  }
+
+  dispatch({
+    type: types.ERROR_CHANGE,
+    payload: error,
+  });
+};

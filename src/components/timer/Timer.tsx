@@ -6,7 +6,7 @@ import TimeDisplay from './TimeDisplay';
 import { DARK_GRAY } from '../../styles/vars';
 import TimeGrid from './TimeGrid';
 import TimeReset from '../TimerReset';
-import { timeTick } from '../../actions';
+import { timeTick, setError } from '../../actions';
 
 const SOUNDS = {
   ding: require('../../../assets/sounds/ding.mp3'),
@@ -22,13 +22,12 @@ class Timer extends React.Component {
   componentDidUpdate(prevProps) {
     const { time } = this.props;
 
+    // Don't play sound if time hasn't changed, but update was called
     if (
       prevProps.time.hours === time.hours &&
       prevProps.time.minutes === time.minutes &&
       prevProps.time.seconds === time.seconds
     )
-      // console.log(sound.playAsync);
-      // Don't play sound if time hasn't changed, but update was called
       return;
 
     if (time.hours === 0 && time.minutes === 0 && time.seconds === 0) {
@@ -43,6 +42,7 @@ class Timer extends React.Component {
   handlePlaySound = async () => {
     const {
       audio: { name },
+      setError,
     } = this.props;
     const sound = new Audio.Sound();
     try {
@@ -55,12 +55,13 @@ class Timer extends React.Component {
           }, playbackStatus.playableDurationMillis);
         })
         .catch((err) => {
-          //Display err
+          setError(err.message);
         });
     } catch (err) {
-      // Display error
+      setError(err.message);
     }
   };
+
   renderError = () => {
     const { error } = this.props;
     return error ? <Text style={styles.error}>{error}</Text> : null;
@@ -90,6 +91,7 @@ const styles = StyleSheet.create({
   },
   error: {
     position: 'absolute',
+    opacity: 0.75,
     top: 25,
     left: 25,
     right: 25,
@@ -107,4 +109,4 @@ const mapStateToProps = (state) => ({
   error: state.error,
 });
 
-export default connect(mapStateToProps, { timeTick })(Timer);
+export default connect(mapStateToProps, { timeTick, setError })(Timer);
