@@ -4,7 +4,7 @@
 
 # Privacy policy
 
-This application in its current state does not collect and send any data about you or your device.
+This application does not collect and send any data about you or your device. 
 
 ## This is the version of Swift Timer made using react-native
 
