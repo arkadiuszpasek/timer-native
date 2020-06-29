@@ -2,6 +2,8 @@
 
 # Swift timer - repository for mobile
 
+![Header](assets/banner.png)
+
 # Privacy policy
 
 This application in its current state does not collect and send any data about you or your device.
