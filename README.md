@@ -15,6 +15,4 @@ You can go to the web version [here](https://github.com/arkadiuszpasek/timer)
 Mobile version does not have all of the web version's functionalities
 (like choosing end sound).
 
-#### The app has been published to Google Play
-
-Go to [Google play's](https://play.google.com/store/apps/details?id=com.arkadiuszpasek.swifttimer) page
+### Go to [Google play's](https://play.google.com/store/apps/details?id=com.arkadiuszpasek.swifttimer) page
